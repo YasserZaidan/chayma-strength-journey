@@ -19,7 +19,13 @@ import {
   Sparkles,
   Target,
   Award,
-  Smile
+  Smile,
+  Calendar,
+  Clock,
+  HelpCircle,
+  Play,
+  Quote,
+  Zap
 } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
 import chaymaPortrait from "@/assets/chayma-portrait.jpg";
@@ -129,11 +135,17 @@ const Index = () => {
                 Specialized personal training for women in menopause, breast cancer survivors, children with autism, and anyone on their healing journey.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold cta-pulse smooth-hover">
                   <Phone className="mr-2 h-5 w-5" />
                   Book a Session
                 </Button>
-                <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent/10">
+                <Button size="lg" className="bg-accent-secondary hover:bg-accent-secondary/90 text-accent-secondary-foreground smooth-hover">
+                  <Calendar className="mr-2 h-5 w-5" />
+                  Free 15-min Consultation
+                </Button>
+              </div>
+              <div className="mt-4">
+                <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent/10 smooth-hover">
                   <Sparkles className="mr-2 h-5 w-5" />
                   Explore Programs
                 </Button>
@@ -145,6 +157,7 @@ const Index = () => {
                   src={chaymaPortrait} 
                   alt="Chayma Al Zein - Personal Trainer"
                   className="rounded-2xl shadow-2xl w-80 h-80 object-cover"
+                  loading="lazy"
                 />
                 <div className="absolute -bottom-4 -right-4 bg-primary p-4 rounded-full shadow-lg">
                   <Award className="h-8 w-8 text-primary-foreground" />
@@ -196,7 +209,7 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => (
-              <Card key={index} className="hover-lift border-border/50 h-full">
+              <Card key={index} className="hover-lift border-border/50 h-full smooth-hover">
                 <CardHeader>
                   <div className={`w-16 h-16 rounded-full ${service.color} flex items-center justify-center mb-4`}>
                     <service.icon className="h-8 w-8" />
@@ -214,25 +227,97 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-muted/30">
+      {/* Special Programs Section */}
+      <section className="py-20 bg-gradient-to-br from-accent-secondary/10 to-accent-tertiary/10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6 text-foreground">Transformations</h2>
-            <p className="text-lg text-muted-foreground">
-              Real stories from real people on their healing journeys.
+            <h2 className="text-4xl font-bold mb-6 text-foreground">Featured Programs</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Specialized programs designed for your unique health journey and recovery needs.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            <Card className="hover-lift border-border/50 bg-card/80 backdrop-blur-sm">
+              <CardContent className="p-6 text-center">
+                <div className="bg-accent-secondary/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="h-8 w-8 text-accent-secondary" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-foreground">Menopause Wellness</h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Hormonal balance through targeted exercise and lifestyle support.
+                </p>
+                <Badge className="bg-accent-secondary/20 text-accent-secondary">8-week program</Badge>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift border-border/50 bg-card/80 backdrop-blur-sm">
+              <CardContent className="p-6 text-center">
+                <div className="bg-accent-tertiary/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Shield className="h-8 w-8 text-accent-tertiary" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-foreground">Breast Cancer Recovery</h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Gentle rehabilitation to rebuild strength and confidence.
+                </p>
+                <Badge className="bg-accent-tertiary/20 text-accent-tertiary">12-week program</Badge>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift border-border/50 bg-card/80 backdrop-blur-sm">
+              <CardContent className="p-6 text-center">
+                <div className="bg-primary/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Smile className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-foreground">Autism Movement</h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Fun movement activities tailored for children with autism.
+                </p>
+                <Badge className="bg-primary/20 text-primary">Ongoing sessions</Badge>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift border-border/50 bg-card/80 backdrop-blur-sm">
+              <CardContent className="p-6 text-center">
+                <div className="bg-accent/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Zap className="h-8 w-8 text-accent" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-foreground">Post-Surgery Recovery</h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Progressive rehabilitation to restore full mobility.
+                </p>
+                <Badge className="bg-accent/20 text-accent">Customized duration</Badge>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Testimonials Section */}
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">Success Stories</h2>
+            <p className="text-lg text-muted-foreground">
+              Hear directly from clients who've transformed their lives.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover-lift border-border/50">
+              <Card key={index} className="hover-lift border-border/50 group">
                 <CardContent className="p-8">
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                    ))}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                    <div className="bg-accent-secondary/20 p-2 rounded-full group-hover:bg-accent-secondary/30 transition-colors">
+                      <Play className="h-4 w-4 text-accent-secondary" />
+                    </div>
                   </div>
+                  <Quote className="h-8 w-8 text-muted-foreground mb-4" />
                   <p className="text-muted-foreground mb-6 italic">
                     "{testimonial.content}"
                   </p>
@@ -243,6 +328,93 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button className="bg-accent-secondary hover:bg-accent-secondary/90 text-accent-secondary-foreground">
+              <Play className="mr-2 h-5 w-5" />
+              Watch More Stories
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">Frequently Asked Questions</h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Common questions about specialized training and recovery programs.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="hover-lift border-border/50">
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-accent-secondary/20 p-2 rounded-full">
+                      <HelpCircle className="h-5 w-5 text-accent-secondary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2 text-foreground">Is this right for me?</h3>
+                      <p className="text-muted-foreground">
+                        If you're navigating menopause, recovering from breast cancer, supporting a child with autism, or recovering from injury, these programs are designed specifically for your needs.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover-lift border-border/50">
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-accent-tertiary/20 p-2 rounded-full">
+                      <Shield className="h-5 w-5 text-accent-tertiary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2 text-foreground">What if I have medical conditions?</h3>
+                      <p className="text-muted-foreground">
+                        All programs are designed with medical considerations in mind. I work closely with healthcare providers to ensure safe, effective training.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover-lift border-border/50">
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-primary/20 p-2 rounded-full">
+                      <Clock className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2 text-foreground">How long are sessions?</h3>
+                      <p className="text-muted-foreground">
+                        Sessions typically range from 45-60 minutes, but can be adjusted based on your energy levels and recovery needs.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="hover-lift border-border/50">
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-accent/20 p-2 rounded-full">
+                      <Heart className="h-5 w-5 text-accent" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-2 text-foreground">Do you offer online sessions?</h3>
+                      <p className="text-muted-foreground">
+                        Yes! Many programs can be delivered online, making it convenient for busy parents or those with mobility challenges.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </section>
@@ -364,11 +536,15 @@ const Index = () => {
                   <CardContent className="p-8 text-center">
                     <Sparkles className="h-12 w-12 text-accent mx-auto mb-4" />
                     <h3 className="text-xl font-semibold mb-3 text-foreground">Ready to Begin?</h3>
-                    <p className="text-muted-foreground mb-4">
+                    <p className="text-muted-foreground mb-6">
                       Your journey to strength and healing starts with a conversation.
                     </p>
+                    <Button className="bg-accent-secondary hover:bg-accent-secondary/90 text-accent-secondary-foreground mb-4 w-full">
+                      <Calendar className="mr-2 h-5 w-5" />
+                      Book Free 15-min Consultation
+                    </Button>
                     <Badge variant="secondary" className="bg-accent/20 text-accent">
-                      Free consultation available
+                      No commitment required
                     </Badge>
                   </CardContent>
                 </Card>
