@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   Heart, 
   Users, 
@@ -25,7 +26,9 @@ import {
   HelpCircle,
   Play,
   Quote,
-  Zap
+  Zap,
+  Puzzle,
+  Download
 } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
 import chaymaPortrait from "@/assets/chayma-portrait.jpg";
@@ -35,13 +38,21 @@ const Index = () => {
     name: "",
     email: "",
     goal: "",
-    message: ""
+    message: "",
+    contactTime: ""
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData({
+      ...formData,
+      [name]: value
     });
   };
 
@@ -63,8 +74,8 @@ const Index = () => {
       color: "bg-pink-50 text-pink-600"
     },
     {
-      icon: Smile,
-      title: "Autism Movement for Kids",
+      icon: Puzzle,
+      title: "🧩 Movement & Mindfulness for Neurodivergent Kids",
       description: "Fun, adaptive movement programs that help children with autism develop coordination and confidence.",
       color: "bg-blue-50 text-blue-600"
     },
@@ -122,9 +133,10 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-warm-gradient overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-10"
+          className="absolute inset-0 bg-cover bg-center opacity-20 blur-sm"
           style={{ backgroundImage: `url(${heroBackground})` }}
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-accent-warm/30 to-accent-gold/20" />
         <div className="relative z-10 container mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left animate-fade-in">
@@ -135,17 +147,17 @@ const Index = () => {
                 Specialized personal training for women in menopause, breast cancer survivors, children with autism, and anyone on their healing journey.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold cta-pulse smooth-hover">
+                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold cta-pulse smooth-hover" aria-label="Book a training session">
                   <Phone className="mr-2 h-5 w-5" />
                   Book a Session
                 </Button>
-                <Button size="lg" className="bg-accent-secondary hover:bg-accent-secondary/90 text-accent-secondary-foreground smooth-hover">
+                <Button size="lg" className="bg-accent-secondary hover:bg-accent-secondary/90 text-accent-secondary-foreground smooth-hover cta-pulse-secondary" aria-label="Schedule free discovery call">
                   <Calendar className="mr-2 h-5 w-5" />
-                  Free 15-min Consultation
+                  Free Discovery Call
                 </Button>
               </div>
               <div className="mt-4">
-                <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent/10 smooth-hover">
+                <Button size="lg" variant="outline" className="border-accent text-accent hover:bg-accent/10 smooth-hover" aria-label="Explore training programs">
                   <Sparkles className="mr-2 h-5 w-5" />
                   Explore Programs
                 </Button>
@@ -155,7 +167,7 @@ const Index = () => {
               <div className="relative">
                 <img 
                   src={chaymaPortrait} 
-                  alt="Chayma Al Zein - Personal Trainer"
+                  alt="Chayma Al Zein - Certified personal trainer specializing in menopause wellness, breast cancer recovery, and autism movement therapy"
                   className="rounded-2xl shadow-2xl w-80 h-80 object-cover"
                   loading="lazy"
                 />
@@ -209,10 +221,10 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => (
-              <Card key={index} className="hover-lift border-border/50 h-full smooth-hover">
+              <Card key={index} className="hover-lift border-border/50 h-full smooth-hover group hover:shadow-xl hover:scale-105 transition-all duration-300">
                 <CardHeader>
-                  <div className={`w-16 h-16 rounded-full ${service.color} flex items-center justify-center mb-4`}>
-                    <service.icon className="h-8 w-8" />
+                  <div className={`w-16 h-16 rounded-full ${service.color} flex items-center justify-center mb-4 group-hover:shadow-lg transition-shadow`}>
+                    <service.icon className="h-8 w-8" aria-hidden="true" />
                   </div>
                   <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
                 </CardHeader>
@@ -269,9 +281,9 @@ const Index = () => {
                 <div className="bg-primary/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Smile className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-foreground">Autism Movement</h3>
+                <h3 className="text-xl font-bold mb-2 text-foreground">Movement & Mindfulness</h3>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Fun movement activities tailored for children with autism.
+                  Fun movement activities tailored for neurodivergent children.
                 </p>
                 <Badge className="bg-primary/20 text-primary">Ongoing sessions</Badge>
               </CardContent>
@@ -419,6 +431,55 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Lead Magnet Section */}
+      <section className="py-20 bg-gradient-to-br from-accent/10 to-accent-secondary/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">Free Wellness Guide</h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Get your free "5 Daily Stretches for Hormonal Balance" guide and start your wellness journey today.
+            </p>
+            
+            <Card className="max-w-2xl mx-auto border-border/50 bg-card/80 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <div className="text-center mb-6">
+                  <div className="bg-accent/20 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Download className="h-10 w-10 text-accent" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2 text-foreground">5 Daily Stretches for Hormonal Balance</h3>
+                  <p className="text-muted-foreground">
+                    A comprehensive guide with illustrated stretches designed specifically for women experiencing hormonal changes.
+                  </p>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <Input
+                      placeholder="Your name"
+                      className="bg-background/50"
+                      aria-label="Enter your name for free guide"
+                    />
+                    <Input
+                      type="email"
+                      placeholder="your@email.com"
+                      className="bg-background/50"
+                      aria-label="Enter your email for free guide"
+                    />
+                  </div>
+                  <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold cta-pulse" aria-label="Download free wellness guide">
+                    <Download className="mr-2 h-5 w-5" />
+                    Get Your Free Guide Now
+                  </Button>
+                  <p className="text-xs text-muted-foreground">
+                    No spam, just valuable wellness tips. Unsubscribe anytime.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
@@ -471,6 +532,19 @@ const Index = () => {
                     />
                   </div>
                   <div>
+                    <label className="text-sm font-medium text-foreground mb-2 block">Preferred Contact Time</label>
+                    <Select onValueChange={(value) => handleSelectChange("contactTime", value)}>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select preferred time" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="morning">Morning (8 AM - 12 PM)</SelectItem>
+                        <SelectItem value="afternoon">Afternoon (12 PM - 6 PM)</SelectItem>
+                        <SelectItem value="evening">Evening (6 PM - 9 PM)</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div>
                     <label className="text-sm font-medium text-foreground mb-2 block">Message</label>
                     <Textarea
                       name="message"
@@ -478,9 +552,10 @@ const Index = () => {
                       onChange={handleInputChange}
                       placeholder="Tell me more about your situation and how I can help..."
                       rows={4}
+                      aria-describedby="message-help"
                     />
                   </div>
-                  <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                  <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" aria-label="Send contact message">
                     <Mail className="mr-2 h-5 w-5" />
                     Send Message
                   </Button>
@@ -506,12 +581,12 @@ const Index = () => {
                       </div>
                       
                       <div className="flex items-center space-x-4">
-                        <div className="bg-green-100 p-3 rounded-full">
-                          <MessageCircle className="h-6 w-6 text-green-600" />
+                        <div className="bg-[#25D366] p-3 rounded-full">
+                          <MessageCircle className="h-6 w-6 text-white" />
                         </div>
                         <div>
                           <p className="font-medium text-foreground">WhatsApp</p>
-                          <a href="https://wa.me/96170462210" className="text-muted-foreground hover:text-accent">
+                          <a href="https://wa.me/96170462210" className="text-muted-foreground hover:text-accent" aria-label="Contact via WhatsApp">
                             +961 70 462 210
                           </a>
                         </div>

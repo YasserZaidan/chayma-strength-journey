@@ -160,6 +160,10 @@ All colors MUST be HSL.
   .cta-pulse {
     animation: pulse-glow 2s infinite;
   }
+  
+  .cta-pulse-secondary {
+    animation: pulse-glow-secondary 2.5s infinite;
+  }
 
   @keyframes pulse-glow {
     0%, 100% {
@@ -167,6 +171,15 @@ All colors MUST be HSL.
     }
     50% {
       box-shadow: 0 0 20px 10px hsl(var(--accent) / 0.1);
+    }
+  }
+  
+  @keyframes pulse-glow-secondary {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(var(--accent-secondary) / 0.4);
+    }
+    50% {
+      box-shadow: 0 0 20px 10px hsl(var(--accent-secondary) / 0.1);
     }
   }
 
