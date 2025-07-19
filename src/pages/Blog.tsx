@@ -99,13 +99,13 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="py-20 bg-warm-gradient">
+      <section className="py-20 bg-warm-gradient animate-fade-in">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold mb-6 text-foreground">
+            <h1 className="text-5xl font-bold mb-6 text-foreground animate-slide-in-up">
               Explore Movement, Healing, and <span className="text-accent">Health</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xl text-muted-foreground mb-8 animate-slide-in-up animate-stagger-1">
               Curated guidance for every stage of recovery and strength. Discover evidence-based insights 
               for specialized wellness needs and healing journeys.
             </p>
@@ -266,8 +266,8 @@ const Blog = () => {
             <div className="lg:col-span-3">
               <div className="grid md:grid-cols-2 gap-6">
                 {articles.map((article, index) => (
-                  <article key={index} className="group">
-                    <Card className="hover-lift border-border/50 h-full">
+                  <article key={index} className={`group animate-scale-in animate-stagger-${Math.min(index % 4 + 1, 4)}`}>
+                    <Card className="hover-lift border-border/50 h-full smooth-hover">
                       {/* Featured Image Placeholder */}
                       <div className="aspect-video bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center relative overflow-hidden">
                         <article.icon className="h-16 w-16 text-accent" />

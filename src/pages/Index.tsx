@@ -133,13 +133,13 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-warm-gradient overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-20 blur-sm"
+          className="absolute inset-0 bg-cover bg-center opacity-20 blur-sm animate-scale-in"
           style={{ backgroundImage: `url(${heroBackground})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-warm/30 to-accent-gold/20" />
+        <div className="absolute inset-0 bg-gradient-to-br from-accent-warm/30 to-accent-gold/20 animate-fade-in" />
         <div className="relative z-10 container mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left animate-fade-in">
+            <div className="text-center lg:text-left animate-slide-in-left">
               <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-foreground">
                 Guiding You to <span className="text-accent">Strength</span>, Confidence, and <span className="text-accent">Healing</span>
               </h1>
@@ -198,7 +198,7 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {certifications.map((cert, index) => (
-              <Card key={index} className="hover-lift border-border/50">
+              <Card key={index} className={`hover-lift border-border/50 animate-fade-in animate-stagger-${Math.min(index + 1, 4)}`}>
                 <CardContent className="p-6 text-center">
                   <CheckCircle className="h-12 w-12 text-accent mx-auto mb-4" />
                   <p className="font-medium text-foreground">{cert}</p>
@@ -221,7 +221,7 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => (
-              <Card key={index} className="hover-lift border-border/50 h-full smooth-hover group hover:shadow-xl hover:scale-105 transition-all duration-300">
+              <Card key={index} className={`hover-lift border-border/50 h-full smooth-hover group hover:shadow-xl hover:scale-105 transition-all duration-300 animate-slide-in-up animate-stagger-${Math.min(index % 4 + 1, 4)}`}>
                 <CardHeader>
                   <div className={`w-16 h-16 rounded-full ${service.color} flex items-center justify-center mb-4 group-hover:shadow-lg transition-shadow`}>
                     <service.icon className="h-8 w-8" aria-hidden="true" />
