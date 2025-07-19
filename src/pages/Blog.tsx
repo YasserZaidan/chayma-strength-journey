@@ -19,10 +19,10 @@ import {
 
 const Blog = () => {
   const featuredArticle = {
-    title: "5 Essential Exercises for Menopausal Women",
-    excerpt: "Discover how targeted exercises can help manage menopausal symptoms, improve bone density, and boost your overall well-being during this important life transition.",
-    readTime: "8 min read",
-    date: "December 15, 2024",
+    title: "5 Stretches Every Woman in Menopause Should Know",
+    excerpt: "Discover targeted stretches specifically designed to ease menopausal symptoms, improve flexibility, and enhance your daily comfort during this important life transition.",
+    readTime: "6 min read",
+    date: "December 18, 2024",
     category: "Menopause Wellness",
     categoryColor: "bg-rose-100 text-rose-600",
     image: "/api/placeholder/600/400"
@@ -30,56 +30,56 @@ const Blog = () => {
 
   const articles = [
     {
-      title: "Wellness After Surgery: A Complete Recovery Guide",
-      excerpt: "Learn the essential steps for safe and effective recovery after surgery, including when to start exercising and how to rebuild your strength progressively.",
+      title: "Rebuilding Strength After Breast Cancer: A Trainer's Guide",
+      excerpt: "Evidence-based protocols for safe strength training during and after breast cancer treatment, designed to restore confidence and physical wellness.",
       readTime: "12 min read",
-      date: "December 10, 2024",
-      category: "Post-Surgery Recovery",
-      categoryColor: "bg-orange-100 text-orange-600",
-      icon: Zap
-    },
-    {
-      title: "Movement for Autistic Children: Building Confidence Through Play",
-      excerpt: "Explore how structured movement activities can help children with autism develop motor skills, improve social interaction, and build self-confidence.",
-      readTime: "10 min read",
-      date: "December 8, 2024",
-      category: "Autism Support",
-      categoryColor: "bg-blue-100 text-blue-600",
-      icon: Smile
-    },
-    {
-      title: "Hormonal Health in Midlife: Understanding Your Body's Changes",
-      excerpt: "Navigate the complex hormonal changes of midlife with expert insights on nutrition, exercise, and lifestyle adjustments for optimal wellness.",
-      readTime: "15 min read",
-      date: "December 5, 2024",
-      category: "Hormonal Health",
-      categoryColor: "bg-purple-100 text-purple-600",
-      icon: Heart
-    },
-    {
-      title: "Strength Training for Breast Cancer Survivors",
-      excerpt: "Discover safe and effective strength training protocols specifically designed for breast cancer survivors to rebuild muscle and improve quality of life.",
-      readTime: "9 min read",
-      date: "December 2, 2024",
+      date: "December 15, 2024",
       category: "Cancer Recovery",
       categoryColor: "bg-emerald-100 text-emerald-600",
       icon: Shield
     },
     {
-      title: "The Science of Recovery: Why Rest is Just as Important as Exercise",
-      excerpt: "Understanding the crucial role of recovery in your fitness journey and how to optimize rest periods for maximum health benefits.",
+      title: "How Autism Movement Therapy Helps Kids Thrive",
+      excerpt: "Discover structured movement activities that support sensory processing, motor skills, and social confidence in neurodivergent children.",
+      readTime: "8 min read",
+      date: "December 12, 2024",
+      category: "Autism Support",
+      categoryColor: "bg-blue-100 text-blue-600",
+      icon: Smile
+    },
+    {
+      title: "From Injury to Independence: A Client's Journey",
+      excerpt: "Follow Sarah's inspiring 6-month transformation from post-surgery weakness to full mobility and renewed strength through specialized training.",
+      readTime: "10 min read",
+      date: "December 8, 2024",
+      category: "Post-Surgery Recovery",
+      categoryColor: "bg-orange-100 text-orange-600",
+      icon: Zap
+    },
+    {
+      title: "Fitness Myths for Men: What Actually Works",
+      excerpt: "Debunking common misconceptions about male fitness while revealing evidence-based strategies for sustainable strength and health.",
       readTime: "7 min read",
-      date: "November 28, 2024",
-      category: "General Wellness",
+      date: "December 5, 2024",
+      category: "General Fitness",
       categoryColor: "bg-gray-100 text-gray-600",
       icon: Activity
     },
     {
-      title: "Building Healthy Habits That Last: A Practical Approach",
-      excerpt: "Learn proven strategies for creating sustainable healthy habits that fit into your busy lifestyle and support your long-term wellness goals.",
+      title: "Hormonal Balance Through Movement: Midlife Wellness",
+      excerpt: "Learn how targeted exercises can help regulate hormones, reduce symptoms, and improve quality of life during perimenopause and beyond.",
+      readTime: "9 min read",
+      date: "December 2, 2024",
+      category: "Hormonal Health",
+      categoryColor: "bg-purple-100 text-purple-600",
+      icon: Heart
+    },
+    {
+      title: "Building Confidence Through Adaptive Movement",
+      excerpt: "Explore how personalized movement therapy creates lasting positive change for individuals with diverse physical and emotional needs.",
       readTime: "11 min read",
-      date: "November 25, 2024",
-      category: "Lifestyle",
+      date: "November 28, 2024",
+      category: "Adaptive Training",
       categoryColor: "bg-yellow-100 text-yellow-600",
       icon: Target
     }
@@ -103,11 +103,11 @@ const Blog = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold mb-6 text-foreground">
-              Wellness <span className="text-accent">Knowledge Base</span>
+              Explore Movement, Healing, and <span className="text-accent">Health</span>
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              Expert insights, practical tips, and evidence-based guidance for your health and wellness journey.
-              Stay informed with the latest research and personalized advice for specialized health needs.
+              Curated guidance for every stage of recovery and strength. Discover evidence-based insights 
+              for specialized wellness needs and healing journeys.
             </p>
             
             {/* Search Bar */}
@@ -190,7 +190,7 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Articles Grid */}
+      {/* Articles Grid with Sidebar */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
@@ -200,53 +200,122 @@ const Blog = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {articles.map((article, index) => (
-              <Card key={index} className="hover-lift border-border/50 h-full group">
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-4">
-                    <Badge className={`${article.categoryColor} text-xs`}>
-                      {article.category}
-                    </Badge>
-                    <article.icon className="h-6 w-6 text-accent" />
-                  </div>
-                  
-                  <CardTitle className="text-xl mb-2 group-hover:text-accent transition-colors">
-                    {article.title}
-                  </CardTitle>
-                  
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                    <div className="flex items-center gap-1">
-                      <Calendar className="h-4 w-4" />
-                      {article.date}
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-4 gap-8">
+            {/* Sidebar */}
+            <div className="lg:col-span-1">
+              <div className="sticky top-8 space-y-6">
+                {/* Search */}
+                <Card className="border-border/50">
+                  <CardHeader>
+                    <h3 className="font-semibold text-foreground">Search Articles</h3>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="relative">
+                      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                      <Input 
+                        placeholder="Search topics..."
+                        className="pl-10"
+                        aria-label="Search blog articles"
+                      />
                     </div>
-                    <div className="flex items-center gap-1">
-                      <Clock className="h-4 w-4" />
-                      {article.readTime}
-                    </div>
-                  </div>
-                </CardHeader>
-                
-                <CardContent>
-                  <CardDescription className="text-base mb-6 leading-relaxed">
-                    {article.excerpt}
-                  </CardDescription>
-                  
-                  <Button variant="outline" className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                    Read Article
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  </CardContent>
+                </Card>
 
-          {/* Load More */}
-          <div className="text-center mt-12">
-            <Button className="bg-accent hover:bg-accent/90 text-accent-foreground" size="lg">
-              <TrendingUp className="mr-2 h-5 w-5" />
-              Load More Articles
-            </Button>
+                {/* Categories */}
+                <Card className="border-border/50">
+                  <CardHeader>
+                    <h3 className="font-semibold text-foreground">Categories</h3>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-2">
+                      {["Menopause", "Cancer Recovery", "Autism Support", "Post-Surgery", "General Fitness"].map((category) => (
+                        <Button 
+                          key={category}
+                          variant="ghost" 
+                          className="w-full justify-start text-sm hover:bg-accent/10"
+                        >
+                          {category}
+                        </Button>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* PDF Download */}
+                <Card className="border-border/50 bg-gradient-to-br from-accent/5 to-accent-secondary/5">
+                  <CardHeader>
+                    <h3 className="font-semibold text-foreground">Free Resource</h3>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-center space-y-4">
+                      <BookOpen className="h-12 w-12 text-accent mx-auto" />
+                      <div>
+                        <h4 className="font-medium text-foreground mb-2">5 Daily Stretches for Hormone Health</h4>
+                        <p className="text-sm text-muted-foreground mb-4">Essential movements for menopausal wellness</p>
+                      </div>
+                      <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                        Download PDF
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+
+            {/* Articles Grid */}
+            <div className="lg:col-span-3">
+              <div className="grid md:grid-cols-2 gap-6">
+                {articles.map((article, index) => (
+                  <article key={index} className="group">
+                    <Card className="hover-lift border-border/50 h-full">
+                      {/* Featured Image Placeholder */}
+                      <div className="aspect-video bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center relative overflow-hidden">
+                        <article.icon className="h-16 w-16 text-accent" />
+                        <Badge className={`absolute top-3 left-3 ${article.categoryColor} text-xs`}>
+                          {article.category}
+                        </Badge>
+                      </div>
+                      
+                      <CardHeader>
+                        <CardTitle className="text-lg mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                          {article.title}
+                        </CardTitle>
+                        
+                        <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                          <div className="flex items-center gap-1">
+                            <Calendar className="h-3 w-3" />
+                            {article.date}
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <Clock className="h-3 w-3" />
+                            {article.readTime}
+                          </div>
+                        </div>
+                      </CardHeader>
+                      
+                      <CardContent>
+                        <CardDescription className="text-sm mb-4 leading-relaxed line-clamp-3">
+                          {article.excerpt}
+                        </CardDescription>
+                        
+                        <Button variant="outline" className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                          Read More
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </article>
+                ))}
+              </div>
+
+              {/* Load More */}
+              <div className="text-center mt-12">
+                <Button className="bg-accent hover:bg-accent/90 text-accent-foreground" size="lg">
+                  <TrendingUp className="mr-2 h-5 w-5" />
+                  Load More Articles
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
