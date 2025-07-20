@@ -17,6 +17,7 @@ import {
   Instagram,
   MessageCircle,
   ArrowUp,
+  ArrowRight,
   CheckCircle,
   Sparkles,
   Target,
@@ -379,6 +380,199 @@ const Index = () => {
                 <Badge className="bg-accent/20 text-accent">Customized duration</Badge>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Blog Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">Featured Article</h2>
+            <p className="text-lg text-muted-foreground">
+              Our most popular wellness guide for your health journey
+            </p>
+          </div>
+
+          <Card className="max-w-4xl mx-auto hover-lift border-border/50 overflow-hidden">
+            <div className="grid lg:grid-cols-2 gap-0">
+              <div className="relative">
+                <div className="aspect-video bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center">
+                  <BookOpen className="h-24 w-24 text-accent" />
+                </div>
+                <Badge className="absolute top-4 left-4 bg-rose-100 text-rose-600">
+                  Menopause Wellness
+                </Badge>
+              </div>
+              
+              <div className="p-8">
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="h-4 w-4" />
+                    December 18, 2024
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-4 w-4" />
+                    6 min read
+                  </div>
+                </div>
+                
+                <h3 className="text-2xl font-bold mb-4 text-foreground">
+                  5 Stretches Every Woman in Menopause Should Know
+                </h3>
+                
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  Discover targeted stretches specifically designed to ease menopausal symptoms, improve flexibility, and enhance your daily comfort during this important life transition.
+                </p>
+                
+                <Link to="/blog">
+                  <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                    Read Full Article
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      {/* New Blog Articles Section */}
+      <section className="py-20 bg-muted/20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-6 text-foreground">Latest Blog Posts</h2>
+            <p className="text-lg text-muted-foreground">
+              Stay updated with expert insights and wellness tips
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <Card className="hover-lift border-border/50 h-full smooth-hover group">
+              <div className="aspect-video bg-gradient-to-br from-emerald-100/50 to-emerald-200/50 flex items-center justify-center relative overflow-hidden">
+                <Shield className="h-16 w-16 text-emerald-600" />
+                <Badge className="absolute top-3 left-3 bg-emerald-100 text-emerald-600 text-xs">
+                  Cancer Recovery
+                </Badge>
+              </div>
+              
+              <CardHeader>
+                <CardTitle className="text-lg mb-2 group-hover:text-accent transition-colors">
+                  Rebuilding Strength After Breast Cancer
+                </CardTitle>
+                
+                <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="h-3 w-3" />
+                    December 15, 2024
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-3 w-3" />
+                    12 min read
+                  </div>
+                </div>
+              </CardHeader>
+              
+              <CardContent>
+                <CardDescription className="text-sm mb-4 leading-relaxed">
+                  Evidence-based protocols for safe strength training during and after breast cancer treatment, designed to restore confidence and physical wellness.
+                </CardDescription>
+                
+                <Link to="/blog">
+                  <Button variant="outline" className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                    Read More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift border-border/50 h-full smooth-hover group">
+              <div className="aspect-video bg-gradient-to-br from-blue-100/50 to-blue-200/50 flex items-center justify-center relative overflow-hidden">
+                <Smile className="h-16 w-16 text-blue-600" />
+                <Badge className="absolute top-3 left-3 bg-blue-100 text-blue-600 text-xs">
+                  Autism Support
+                </Badge>
+              </div>
+              
+              <CardHeader>
+                <CardTitle className="text-lg mb-2 group-hover:text-accent transition-colors">
+                  How Autism Movement Therapy Helps Kids Thrive
+                </CardTitle>
+                
+                <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="h-3 w-3" />
+                    December 12, 2024
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-3 w-3" />
+                    8 min read
+                  </div>
+                </div>
+              </CardHeader>
+              
+              <CardContent>
+                <CardDescription className="text-sm mb-4 leading-relaxed">
+                  Discover structured movement activities that support sensory processing, motor skills, and social confidence in neurodivergent children.
+                </CardDescription>
+                
+                <Link to="/blog">
+                  <Button variant="outline" className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                    Read More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+
+            <Card className="hover-lift border-border/50 h-full smooth-hover group">
+              <div className="aspect-video bg-gradient-to-br from-orange-100/50 to-orange-200/50 flex items-center justify-center relative overflow-hidden">
+                <Zap className="h-16 w-16 text-orange-600" />
+                <Badge className="absolute top-3 left-3 bg-orange-100 text-orange-600 text-xs">
+                  Post-Surgery Recovery
+                </Badge>
+              </div>
+              
+              <CardHeader>
+                <CardTitle className="text-lg mb-2 group-hover:text-accent transition-colors">
+                  From Injury to Independence: A Client's Journey
+                </CardTitle>
+                
+                <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="h-3 w-3" />
+                    December 8, 2024
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Clock className="h-3 w-3" />
+                    10 min read
+                  </div>
+                </div>
+              </CardHeader>
+              
+              <CardContent>
+                <CardDescription className="text-sm mb-4 leading-relaxed">
+                  Follow Sarah's inspiring 6-month transformation from post-surgery weakness to full mobility and renewed strength through specialized training.
+                </CardDescription>
+                
+                <Link to="/blog">
+                  <Button variant="outline" className="w-full group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
+                    Read More
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/blog">
+              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                View All Articles
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
