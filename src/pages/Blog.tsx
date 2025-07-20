@@ -25,7 +25,7 @@ const Blog = () => {
     date: "December 18, 2024",
     category: "Menopause Wellness",
     categoryColor: "bg-rose-100 text-rose-600",
-    image: "/api/placeholder/600/400"
+    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=600&h=400&fit=crop&auto=format"
   };
 
   const articles = [
@@ -36,7 +36,8 @@ const Blog = () => {
       date: "December 15, 2024",
       category: "Cancer Recovery",
       categoryColor: "bg-emerald-100 text-emerald-600",
-      icon: Shield
+      icon: Shield,
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&auto=format"
     },
     {
       title: "How Autism Movement Therapy Helps Kids Thrive",
@@ -45,7 +46,8 @@ const Blog = () => {
       date: "December 12, 2024",
       category: "Autism Support",
       categoryColor: "bg-blue-100 text-blue-600",
-      icon: Smile
+      icon: Smile,
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&auto=format"
     },
     {
       title: "From Injury to Independence: A Client's Journey",
@@ -54,7 +56,8 @@ const Blog = () => {
       date: "December 8, 2024",
       category: "Post-Surgery Recovery",
       categoryColor: "bg-orange-100 text-orange-600",
-      icon: Zap
+      icon: Zap,
+      image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&h=400&fit=crop&auto=format"
     },
     {
       title: "Fitness Myths for Men: What Actually Works",
@@ -63,7 +66,8 @@ const Blog = () => {
       date: "December 5, 2024",
       category: "General Fitness",
       categoryColor: "bg-gray-100 text-gray-600",
-      icon: Activity
+      icon: Activity,
+      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&h=400&fit=crop&auto=format"
     },
     {
       title: "Hormonal Balance Through Movement: Midlife Wellness",
@@ -72,7 +76,8 @@ const Blog = () => {
       date: "December 2, 2024",
       category: "Hormonal Health",
       categoryColor: "bg-purple-100 text-purple-600",
-      icon: Heart
+      icon: Heart,
+      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=600&h=400&fit=crop&auto=format"
     },
     {
       title: "Building Confidence Through Adaptive Movement",
@@ -81,7 +86,8 @@ const Blog = () => {
       date: "November 28, 2024",
       category: "Adaptive Training",
       categoryColor: "bg-yellow-100 text-yellow-600",
-      icon: Target
+      icon: Target,
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&auto=format"
     }
   ];
 
@@ -152,9 +158,11 @@ const Blog = () => {
           <Card className="max-w-5xl mx-auto hover-lift border-border/50 overflow-hidden">
             <div className="grid lg:grid-cols-2 gap-0">
               <div className="relative">
-                <div className="aspect-video bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center">
-                  <BookOpen className="h-24 w-24 text-accent" />
-                </div>
+                <img 
+                  src={featuredArticle.image} 
+                  alt={featuredArticle.title}
+                  className="aspect-video w-full object-cover"
+                />
                 <Badge className={`absolute top-4 left-4 ${featuredArticle.categoryColor}`}>
                   {featuredArticle.category}
                 </Badge>
@@ -268,9 +276,13 @@ const Blog = () => {
                 {articles.map((article, index) => (
                   <article key={index} className={`group animate-scale-in animate-stagger-${Math.min(index % 4 + 1, 4)}`}>
                     <Card className="hover-lift border-border/50 h-full smooth-hover">
-                      {/* Featured Image Placeholder */}
-                      <div className="aspect-video bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center relative overflow-hidden">
-                        <article.icon className="h-16 w-16 text-accent" />
+                      {/* Featured Image */}
+                      <div className="relative overflow-hidden">
+                        <img 
+                          src={article.image} 
+                          alt={article.title}
+                          className="aspect-video w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
                         <Badge className={`absolute top-3 left-3 ${article.categoryColor} text-xs`}>
                           {article.category}
                         </Badge>
