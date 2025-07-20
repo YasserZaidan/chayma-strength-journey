@@ -397,9 +397,11 @@ const Index = () => {
           <Card className="max-w-4xl mx-auto hover-lift border-border/50 overflow-hidden">
             <div className="grid lg:grid-cols-2 gap-0">
               <div className="relative">
-                <div className="aspect-video bg-gradient-to-br from-accent/20 to-accent-secondary/20 flex items-center justify-center">
-                  <BookOpen className="h-24 w-24 text-accent" />
-                </div>
+                <img 
+                  src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=600&h=400&fit=crop&auto=format" 
+                  alt="5 Stretches Every Woman in Menopause Should Know"
+                  className="aspect-video w-full object-cover"
+                />
                 <Badge className="absolute top-4 left-4 bg-rose-100 text-rose-600">
                   Menopause Wellness
                 </Badge>
@@ -449,8 +451,12 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <Card className="hover-lift border-border/50 h-full smooth-hover group">
-              <div className="aspect-video bg-gradient-to-br from-emerald-100/50 to-emerald-200/50 flex items-center justify-center relative overflow-hidden">
-                <Shield className="h-16 w-16 text-emerald-600" />
+              <div className="relative overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop&auto=format" 
+                  alt="Rebuilding Strength After Breast Cancer"
+                  className="aspect-video w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
                 <Badge className="absolute top-3 left-3 bg-emerald-100 text-emerald-600 text-xs">
                   Cancer Recovery
                 </Badge>
@@ -488,8 +494,12 @@ const Index = () => {
             </Card>
 
             <Card className="hover-lift border-border/50 h-full smooth-hover group">
-              <div className="aspect-video bg-gradient-to-br from-blue-100/50 to-blue-200/50 flex items-center justify-center relative overflow-hidden">
-                <Smile className="h-16 w-16 text-blue-600" />
+              <div className="relative overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&auto=format" 
+                  alt="How Autism Movement Therapy Helps Kids Thrive"
+                  className="aspect-video w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
                 <Badge className="absolute top-3 left-3 bg-blue-100 text-blue-600 text-xs">
                   Autism Support
                 </Badge>
@@ -527,8 +537,12 @@ const Index = () => {
             </Card>
 
             <Card className="hover-lift border-border/50 h-full smooth-hover group">
-              <div className="aspect-video bg-gradient-to-br from-orange-100/50 to-orange-200/50 flex items-center justify-center relative overflow-hidden">
-                <Zap className="h-16 w-16 text-orange-600" />
+              <div className="relative overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&h=400&fit=crop&auto=format" 
+                  alt="From Injury to Independence: A Client's Journey"
+                  className="aspect-video w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
                 <Badge className="absolute top-3 left-3 bg-orange-100 text-orange-600 text-xs">
                   Post-Surgery Recovery
                 </Badge>
