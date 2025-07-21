@@ -5,6 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { 
   Plus, 
   Edit, 
@@ -90,6 +92,8 @@ const AdminDashboard = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Header />
+      
       {/* Header */}
       <div className="bg-background border-b border-border">
         <div className="container mx-auto px-4 py-6">
@@ -268,6 +272,8 @@ const AdminDashboard = () => {
           </CardContent>
         </Card>
       </div>
+      
+      <Footer />
     </div>
   );
 };
