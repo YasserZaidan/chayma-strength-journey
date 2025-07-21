@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   Heart, 
@@ -110,19 +111,22 @@ const Index = () => {
       name: "Sarah M.",
       role: "Breast Cancer Survivor",
       content: "Chayma's gentle approach helped me rebuild my strength and confidence after treatment. She understood exactly what I needed during my recovery.",
-      rating: 5
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b77c?w=100&h=100&fit=crop&auto=format"
     },
     {
       name: "Maria T.",
       role: "Mother of Autistic Child",
       content: "My son looks forward to every session with Chayma. She's created such a safe, fun environment where he can develop his movement skills naturally.",
-      rating: 5
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=100&h=100&fit=crop&auto=format"
     },
     {
       name: "Ahmed K.",
       role: "Post-Surgery Recovery",
       content: "After my shoulder surgery, I thought I'd never regain full mobility. Chayma's program got me back to better than I was before the injury.",
-      rating: 5
+      rating: 5,
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&auto=format"
     }
   ];
 
@@ -619,10 +623,16 @@ const Index = () => {
                   <p className="text-muted-foreground mb-6 italic">
                     "{testimonial.content}"
                   </p>
-                  <div>
-                    <p className="font-semibold text-foreground">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
-                  </div>
+                   <div className="flex items-center gap-3">
+                     <Avatar className="w-12 h-12">
+                       <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
+                       <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                     </Avatar>
+                     <div>
+                       <p className="font-semibold text-foreground">{testimonial.name}</p>
+                       <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                     </div>
+                   </div>
                 </CardContent>
               </Card>
             ))}
