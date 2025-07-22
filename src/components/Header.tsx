@@ -26,6 +26,9 @@ const Header = () => {
               <BookOpen className="mr-2 h-4 w-4" />
               Blog & Insights
             </Link>
+            <Link to="/auth" className="text-muted-foreground hover:text-foreground transition-colors">
+              Admin
+            </Link>
             <Link to="/book-now">
               <Button size="sm" className="bg-accent hover:bg-accent/90">
                 Book Now
@@ -67,6 +70,13 @@ const Header = () => {
               >
                 <BookOpen className="mr-2 h-4 w-4" />
                 Blog & Insights
+              </Link>
+              <Link 
+                to="/auth" 
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Admin
               </Link>
               <Link to="/book-now" onClick={() => setIsMenuOpen(false)}>
                 <Button size="sm" className="bg-accent hover:bg-accent/90 w-fit">

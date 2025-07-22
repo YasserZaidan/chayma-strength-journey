@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { useAuth } from '@/hooks/useAuth';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { 
@@ -16,7 +18,9 @@ import {
   Calendar,
   User,
   Eye,
-  BarChart3
+  BarChart3,
+  LogOut,
+  Loader2
 } from 'lucide-react';
 
 // Sample blog data - this would come from Supabase in a real implementation
@@ -66,9 +70,37 @@ const blogPosts = [
 ];
 
 const AdminDashboard = () => {
+  const { user, isLoading, isAdmin, signOut } = useAuth();
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [filterStatus, setFilterStatus] = useState('All');
   const [showNewPostForm, setShowNewPostForm] = useState(false);
+
+  useEffect(() => {
+    if (!isLoading && (!user || !isAdmin)) {
+      navigate('/auth');
+    }
+  }, [user, isAdmin, isLoading, navigate]);
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
+  };
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="flex items-center gap-2">
+          <Loader2 className="h-6 w-6 animate-spin" />
+          <span>Loading...</span>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user || !isAdmin) {
+    return null;
+  }
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -107,13 +139,27 @@ const AdminDashboard = () => {
                 <p className="text-muted-foreground">Manage your blog posts and content</p>
               </div>
             </div>
-            <Button 
-              onClick={() => setShowNewPostForm(true)}
-              className="bg-accent hover:bg-accent/90"
-            >
-              <Plus className="mr-2 h-4 w-4" />
-              New Post
-            </Button>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <User className="h-4 w-4" />
+                <span>{user?.email}</span>
+              </div>
+              <Button 
+                onClick={() => setShowNewPostForm(true)}
+                className="bg-accent hover:bg-accent/90"
+              >
+                <Plus className="mr-2 h-4 w-4" />
+                New Post
+              </Button>
+              <Button 
+                variant="outline"
+                onClick={handleSignOut}
+                className="gap-2"
+              >
+                <LogOut className="h-4 w-4" />
+                Sign Out
+              </Button>
+            </div>
           </div>
         </div>
       </div>
