@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Programs from "./pages/Programs";
 import Blog from "./pages/Blog";
 import BookNow from "./pages/BookNow";
+import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/programs" element={<Programs />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/book-now" element={<BookNow />} />
+          <Route path="/admin" element={<AdminDashboard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
