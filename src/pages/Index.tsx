@@ -40,6 +40,7 @@ import {
 } from "lucide-react";
 import heroBackground from "@/assets/hero-background.jpg";
 import chaymaPortrait from "@/assets/chayma-portrait.jpg";
+import { useLeadMagnet } from '@/hooks/useLeadMagnet';
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -49,6 +50,13 @@ const Index = () => {
     message: "",
     contactTime: ""
   });
+
+  const [leadMagnetData, setLeadMagnetData] = useState({
+    name: "",
+    email: ""
+  });
+
+  const { submitLeadMagnet, isSubmitting } = useLeadMagnet();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -67,6 +75,22 @@ const Index = () => {
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleLeadMagnetChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setLeadMagnetData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleLeadMagnetSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const success = await submitLeadMagnet(leadMagnetData);
+    if (success) {
+      setLeadMagnetData({ name: "", email: "" });
+    }
   };
 
   const services = [
@@ -679,28 +703,41 @@ const Index = () => {
                   </p>
                 </div>
                 
-                <div className="space-y-4">
+                <form onSubmit={handleLeadMagnetSubmit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <Input
+                      name="name"
+                      value={leadMagnetData.name}
+                      onChange={handleLeadMagnetChange}
                       placeholder="Your name"
                       className="bg-background/50"
                       aria-label="Enter your name for free guide"
+                      required
                     />
                     <Input
                       type="email"
+                      name="email"
+                      value={leadMagnetData.email}
+                      onChange={handleLeadMagnetChange}
                       placeholder="your@email.com"
                       className="bg-background/50"
                       aria-label="Enter your email for free guide"
+                      required
                     />
                   </div>
-                  <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold cta-pulse" aria-label="Download free wellness guide">
+                  <Button 
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold cta-pulse" 
+                    aria-label="Download free wellness guide"
+                  >
                     <Download className="mr-2 h-5 w-5" />
-                    Get Your Free Guide Now
+                    {isSubmitting ? 'Preparing Your Guide...' : 'Get Your Free Guide Now'}
                   </Button>
-                  <p className="text-xs text-muted-foreground">
-                    No spam, just valuable wellness tips. Unsubscribe anytime.
-                  </p>
-                </div>
+                </form>
+                <p className="text-xs text-muted-foreground mt-4">
+                  No spam, just valuable wellness tips. Unsubscribe anytime.
+                </p>
               </CardContent>
             </Card>
           </div>
